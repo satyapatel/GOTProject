@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Accept-Encoding" content="gzip, deflate">
+    <title>Game Of Throns Battles</title>
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
+    />
+    <link type="text/css" rel="stylesheet" href="/static/css/gotstyle.css" />
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"
+        </script>
+        < script type = "text/javascript"
+        src = "//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js" >
+    </script>
+
+    <script type="text/javascript" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
+
+    <script type="text/javascript" src="/static/js/BattlesController.js"></script>
+</head>
+
+<body ng-app="GOTBattles" ng-controller="GotBattlesController">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well">
+                    <h2 class="text-center">Game Of Throns </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tabbable tabs-top">
+                    <ul class="nav nav-tabs">
+                        <li><a href="#viewAllBattles" ng-click="getAllBattles()" data-toggle="tab">View All Battles</a></li>
+                        <li><a href="#viewStatics" ng-click="getStatics()" data-toggle="tab">View Battle statics</a></li>
+                        <li><a href="#search" ng-click="showSearchs()" data-toggle="tab">Search Battles</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="views">
+                <div id="myTabContent" class="tab-content">
+                    <!---VIEW All Battles-->
+                    <div class="tab-pane fade in active" id="viewAllBattles">
+                        <pre ng-show="battles_count">Total Number of Battles : [[battles_count]]</pre>
+                        <pre ng-show="all_battles_formatted" ng-bind-html="all_battles_formatted"></pre>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="views">
+                <div id="myTabContent" class="tab-content">
+                    <!---VIEW Battles Statics-->
+                    <div class="tab-pane fade in active" id="viewStatics">
+                        <pre ng-show="battlesStatics" ng-bind-html="battlesStatics"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" id="views">
+                    <div id="myTabContent" class="tab-content">
+                        <!---VIEW Battles Statics-->
+                        <div class="tab-pane fade in active" id="search">
+                            <div class="row">
+                                <div style="text-align: center" class="col-md-12">
+                                    <label ng-show="searchEnable">Name :
+                                    <input type="text" ng-show="searchEnable" style="text-align: center" ng-model="name"></input>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: center" class="col-md-12">
+                                     <label ng-show="searchEnable">Attacker King : <input type="text" style="text-align: center" name="1" ng-show="searchEnable" ng-model="attacker_king"></input> </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: center" class="col-md-12">
+                                    <label ng-show="searchEnable">Defender King : <input type="text" style="text-align: center" name="2" ng-show="searchEnable" ng-model="defender_king"></input></label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: center" class="col-md-12">
+                                    <label ng-show="searchEnable">Battle Type : <input type="text" style="text-align: center" name="3" ng-show="searchEnable" ng-model="battle_type"></input></label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: center" class="col-md-12">
+                                    <label ng-show="searchEnable">Location : <input type="text" style="text-align: center" name="4" ng-show="searchEnable" ng-model="location"></input></label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div style="text-align: center" class="col-md-12">
+                                   <p ng-show="searchEnable">Search result by proving given parameters</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: center" class="col-md-12">
+                            <button ng-show="searchEnable" ng-click="search()">Search Battles</button>
+                             </div>
+                            </div>
+
+                            <div class="row">
+                                <div style="text-align: center" class="col-md-12">
+                            <pre ng-show="search_result" ng-bind-html="search_result"></pre>
+                             </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+</body>
