@@ -113,7 +113,7 @@ class Battles:
     def search_battles(colum_map):
         str = " 1 = 1 "
         for key, value in colum_map.iteritems():
-            if value:
+            if value and value != 'undefined':
                 str = str + " and " + key + " = '" + value +"'"
 
         sql = "SELECT * FROM battles WHERE" + str

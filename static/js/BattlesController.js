@@ -71,17 +71,9 @@ app.controller(
             }
 
             $scope.search = function() {
-
                 $scope.search_result = "Searching...."
-                var params = {
-                    name: $scope.name,
-                    attacker_king: $scope.attacker_king,
-                    defender_king: $scope.defender_king,
-                    battle_type: $scope.battle_type,
-                    location: $scope.location
-                }
                 $http({
-                    url: "/search?"+ "name=" + $scope.name + "&attacker_king=" + $scope.attacker_king +"&defender_king="+$scope.defender_king +"&battle_type"+$scope.battle_type + "&location"+$scope.location,
+                    url: "/search?"+ "name=" + $scope.name + "&attacker_king=" + $scope.attacker_king +"&defender_king="+$scope.defender_king +"&battle_type="+$scope.battle_type + "&location="+$scope.location,
                     method: "GET",
                     withCredentials: true,
                 }).success(function(data, status) {
