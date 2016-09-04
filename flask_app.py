@@ -42,8 +42,6 @@ def search():
         query_map['battle_type'] = request.form.get('battle_type')
         query_map['location'] = request.form.get('location')
 
-    return jsonify(result = query_map)
-
     return jsonify(result = Battles.search_battles(query_map))
 
 
