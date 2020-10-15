@@ -2,6 +2,8 @@ from MySqlDbHandler import MySqlHandler
 
 class Battles:
 
+    #This is GOT project
+    
     @staticmethod
     def get_battle_map(row):
         battle = {}
